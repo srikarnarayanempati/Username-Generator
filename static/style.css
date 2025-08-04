@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+body {
+  background: #e8ddf8;
+  margin: 0;
+  padding: 20px;
+  color: #000;
+}
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+h1, h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  background: #ffe600; 
+  border: 3px solid black;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 4px 4px 0 black;
+  margin-bottom: 20px;
+}
+.form-box, .results-box {
+  background: #aef1c7;
+  border: 3px solid black;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 6px 6px 0 black;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 3px solid black;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fff;
+}
+button {
+  background: #000;
+  color: #fff;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.2s ease-in-out;
+  box-shadow: 3px 3px 0 black;
+}
+
+button:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+.username-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f5f5;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 4px 4px 0 black;
+}
+
+.username-item button {
+  width: auto;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+@media (max-width: 600px) {
+  h1, h2 {
+    font-size: 1.4rem;
+  }
+
+  .username-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .username-item button {
+    margin-top: 8px;
+    width: 100%;
+  }
+}
+#copy-toast {
+  visibility: hidden;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 20px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#copy-toast.show {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Username Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>USERNAME GENERATOR</h1>
+
+    <form method="POST" class="form-box">
+      <label for="first">First Name</label>
+      <input type="text" name="first_name" id="first" required>
+
+      <label for="last">Last Name</label>
+      <input type="text" name="last_name" id="last" required>
+
+      <button type="submit">Generate 🚀</button>
+    </form>
+
+    {% if usernames %}
+    <div class="results-box">
+      <h2>Generated Usernames</h2>
+      {% for username in usernames %}
+      <div class="username-item">
+        <span id="username-{{ loop.index }}">{{ username }}</span>
+        <button onclick="copyToClipboard('username-{{ loop.index }}')">📋 Copy</button>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+<script>
+  function copyToClipboard(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.getElementById("copy-toast");
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2000);
+    });
+  }
+</script>
+<div id="copy-toast">Copied to clipboard ✅</div>
+
+</body>
+</html>
